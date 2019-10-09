@@ -1,5 +1,4 @@
 module.exports = function check(str, bracketsConfig) {
-  module.exports = function check(str, bracketsConfig) {
 
     let result = [];
     
@@ -11,7 +10,7 @@ module.exports = function check(str, bracketsConfig) {
           }
           /* the same */
           else if (str[i] == bracketsConfig[j][0] && str[i] == bracketsConfig[j][1]) {
-            if (result[result.length-1] == bracketsConfig[j][0]) {    // last symbol check
+            if (result[result.length-1] == bracketsConfig[j][1]) {    // last symbol check
               result.pop();
             }
             else {
@@ -19,8 +18,8 @@ module.exports = function check(str, bracketsConfig) {
             }
           }
           /* pop not the same */
-          else if (str[i] == bracketsConfig[j][1] && str[i]!== bracketsConfig[j][0]) {
-            if (result[result.length-1] == bracketsConfig[j][0]) {
+          else if (str[i] == bracketsConfig[j][1] && str[i] !== bracketsConfig[j][0]) {
+            if (result[result.length-1] === bracketsConfig[j][0]) {
               result.pop();
               }
               else {
@@ -31,4 +30,4 @@ module.exports = function check(str, bracketsConfig) {
     }
     return result.length == 0;
   }
-}
+
